@@ -1,0 +1,20 @@
+.video-player {
+	position: relative;
+	min-height: 200px;
+	height: auto;
+	width: 100%;
+
+
+	video {
+		display: none;
+	}
+
+	.video-overlay {
+		cursor: pointer;
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		width: 100%;
+		height: auto;
+	}
+}

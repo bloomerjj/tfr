@@ -1,0 +1,8 @@
+mixin back-to-top
+
+    a(ng-click="scrollTo('body', 250)")&attributes(attributes).back-to-top.global Back to Top
+
+
+
+div(ng-class="{'hide-isi': isiTrayHidden === true || mobileMenuOpen === true}").wrap--content.back-top
+    +back-to-top(track-event="['btn_BackToTop_c', 'Click', \"Click on 3rd 'Back to Top' link\"]")

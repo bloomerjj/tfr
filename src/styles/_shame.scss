@@ -1,0 +1,30 @@
+// http://csswizardry.com/2013/04/shame-css/
+
+// The rules
+
+// 1. If it’s a hack, it goes in here.
+
+// 2. Document all hacks fully:
+//     1. What part of the codebase does it relate to?
+//     2. Why was this needed?
+//     3. How does this fix it?
+//     4. How might you fix it properly, given more time?
+
+// 3. Do not blame the developer; if they explained why they had to do it then their reasons are probably (hopefully) valid.
+
+// 4. Try and clean this up when you have some down time.
+//     1. Even better, get a tech-debt story in which you can dedicate actual sprint time to it.
+
+//
+// 1. Element is in /src/markup/pages/index.pug
+// 2. The container next to it has a very specific breakpoint and due that, starts separating the triangle from its icon-container.
+// The "md" size already set fix the problem but makes the container looks weird in a lot of resolution span.
+// 3. Taking the specific point, with a media query can be solved without generate another breakpoint system (something between sm and md)
+@media screen and (max-width: 880px) {
+    .purple-container {
+        margin-left: auto !important;
+    }
+    .purple-triangle {
+        display: none;
+    }
+}

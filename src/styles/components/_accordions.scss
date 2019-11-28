@@ -1,0 +1,69 @@
+.accordion-title {
+    cursor: pointer;
+    display: block;
+    line-height: 35px;
+    background-color: rgb(245, 128, 32);
+    color: rgb(255, 255, 255);
+    padding: 0px 11px 0px 11px;
+    margin-top:20px; 
+    margin-bottom: 35px; 
+    img{
+        float: right;
+        top: 16px;
+        &.plus{
+            display: none;
+            top: 5px;
+        }
+    }
+    
+}
+.height-transition{
+    -webkit-transition: max-height 400ms linear;
+    -moz-transition: max-height 400ms linear;
+    -o-transition: max-height 400ms linear;
+    -ms-transition: max-height 400ms linear;
+    transition: max-height 400ms linear;
+    overflow: hidden;
+    max-height: 3000px;
+}
+
+.accordion-closed{
+    max-height: 100px;
+    .accordion-title {
+        img.minus{
+            display: none;
+        }
+        img.plus{
+            display: block;
+        }
+    }
+    @include mq('md', 'lg', 'xl') {
+        max-height: 3000px;
+    }
+}
+
+.accordion {
+    &.open {
+        .accordion__wrap {
+            padding-bottom: 30px;
+            max-height: 300px; //this needs to be equal to the desired content's height
+        }
+
+        .accordion-title {
+            padding-bottom: 0px;
+        }
+
+    }
+
+    .accordion__wrap {
+        overflow: hidden;
+        max-height: 0px;
+        transition: max-height 200ms ease-in-out;
+
+        .accordion__content {
+            // foo
+        }
+
+    }
+
+}

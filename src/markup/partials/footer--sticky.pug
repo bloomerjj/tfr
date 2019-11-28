@@ -1,0 +1,120 @@
+footer(isi-tray ng-class="{'hide-isi': isiTrayHidden === true || mobileMenuOpen === true}").footer--sticky
+
+    img(src="img/scroll-down-arrow.png" scroll-down-arrow ng-class="{ 'offset-position': isiTrayHidden === true }").scroll-down-arrow.hide--sm.hide--md
+
+
+    //- DESKTOP RIGH STICKY ISI
+    
+    .desktop-right-sticky-isi.hide--sm
+
+        .header-wrapper          
+            a(ng-click="scrollTo('.aside--isi')" track-event="['ISI_SeeMore', 'Click', \"Click on '+' to expand the ISI\"]").button.hide--sm.hide--md +
+
+            h2 INDICATION AND IMPORTANT 
+                br.hide--zoom
+                | SAFETY INFORMATION
+
+        .scroll-wrapper#scroll-wrapper
+            .content
+                p TYMLOS is indicated for the treatment of postmenopausal women with osteoporosis at high risk for fracture defined as a history of osteoporotic fracture, multiple risk factors for fracture, or patients who have failed or are intolerant to other available osteoporosis therapy.
+
+                p 
+                    span.orange-underline Limitations of Use
+                        br.hide--zoom
+                    | Because of the unknown relevance of the rodent osteosarcoma findings to humans, cumulative use of TYMLOS and parathyroid hormone analogs (e.g., teriparatide) for more than 2 years during a patient’s lifetime is not recommended. 
+
+                p.orange 
+                    strong WARNING: RISK OF OSTEOSARCOMA
+    
+                ul.block 
+                    li 
+                        strong Abaloparatide caused a dose-dependent increase in the incidence of osteosarcoma (a malignant bone tumor) in male and female rats. The effect was observed at systemic exposures to abaloparatide ranging from 4 to 28 times the exposure in humans receiving the 80 mcg dose. It is unknown if TYMLOS will cause osteosarcoma in humans.
+                    
+                    li 
+                        strong The use of TYMLOS is not recommended in patients at increased risk of osteosarcoma including those with Paget's disease of bone or unexplained elevations of alkaline phosphatase, open epiphyses, bone metastases or skeletal malignancies, hereditary disorders predisposing to osteosarcoma, or prior external beam or implant radiation therapy involving the skeleton.
+                    
+                    li 
+                        strong Cumulative use of TYMLOS and parathyroid hormone analogs (e.g., teriparatide) for more than 2 years during a patient’s lifetime is not recommended.
+                p
+                    span.orange 
+                        strong Orthostatic Hypotension: 
+                    | Orthostatic hypotension may occur with TYMLOS, typically within 4 hours of injection. Associated symptoms may include dizziness, palpitations, tachycardia or nausea, and may resolve by having the patient lie down. For the first several doses, TYMLOS should be administered where the patient can sit or lie down if necessary.
+                
+                p
+                    span.orange 
+                        strong Hypercalcemia: 
+                    | TYMLOS may cause hypercalcemia. TYMLOS is not recommended in patients with pre-existing hypercalcemia or in patients who have an underlying hypercalcemic disorder, such as primary hyperparathyroidism, because of the possibility of exacerbating hypercalcemia.
+                
+                p
+                    span.orange 
+                        strong Hypercalciuria and Urolithiasis: 
+                    | TYMLOS may cause hypercalciuria. It is unknown whether TYMLOS may exacerbate urolithiasis in patients with active or a history of urolithiasis. If active urolithiasis or pre-existing hypercalciuria is suspected, measurement of urinary calcium excretion should be considered.
+                
+                p
+                    span.orange 
+                        strong Adverse Reactions: 
+                    | The most common adverse reactions (incidence ≥2%) are hypercalciuria, dizziness, nausea, headache, palpitations, fatigue, upper abdominal pain and vertigo.
+                
+                p.full-prescribing-info Please see 
+                    a(href="http://radiuspharm.com/wp-content/uploads/tymlos/tymlos-prescribing-information.pdf" target="_blank" track-event="['ext_ISI_FullPrescribingInfo', 'Click', \"Click on 'Full Prescribing Information' link\"]").orange-underline Full Prescribing Information
+                    | , including Boxed Warning.
+
+
+    //- DESKTOP STICKY ISI
+
+    .desktop-sticky-isi.hide--sm.hide--isi-lg
+
+        .wrap--content
+            
+            //- Desktop only sticky footer control
+            a(ng-click="scrollTo('.aside--isi')" track-event="['ISI_SeeMore', 'Click', \"Click on 'SEE MORE' to expand the ISI\"]").button.hide--sm See More
+
+
+
+            .columns
+
+                .main
+
+                    h2 INDICATION AND IMPORTANT SAFETY INFORMATION
+
+
+                    p TYMLOS is indicated for the treatment of postmenopausal women with osteoporosis at high risk for fracture defined as a history of osteoporotic fracture, multiple risk factors for fracture, or patients who have failed or are intolerant to other available osteoporosis therapy.
+
+                    p 
+                        span.orange-underline Limitations of Use
+                        br.hide--zoom
+                        | Because of the unknown relevance of the rodent osteosarcoma findings to humans, cumulative use of TYMLOS and parathyroid hormone analogs (e.g., teriparatide) for more than 2 years during a patient’s lifetime is not recommended. 
+                    
+                .sidebar
+
+                    p.orange 
+                        strong WARNING: RISK OF OSTEOSARCOMA
+                    
+                    ul.block 
+                        li Abaloparatide caused a dose-dependent increase in the incidence of osteosarcoma (a malignant bone tumor) in male and female rats. The effect was observed at systemic exposures to abaloparatide ranging from 4 to 28 times the exposure in humans receiving the 80 mcg dose. It is unknown if TYMLOS will cause osteosarcoma in humans.
+
+
+
+
+
+    //- MOBILE STICKY ISI
+    .mobile-sticky-isi.hide--md.hide--lg.hide--xl
+
+        .wrap--content
+
+            a(ng-click="scrollTo('.aside--isi')" track-event="['ISI_SeeMore', 'Click', \"Click on 'Full Prescribing Information' link\"]").button.button--expand.hide--md.hide--lg.hide--xl +
+            
+
+
+            h2 INDICATION AND IMPORTANT
+                br.hide--md.hide--lg.hide--xl 
+                | SAFETY INFORMATION
+            
+
+            .minimizable-content(ng-hide="isiMinimized")
+
+                p.orange
+                    strong WARNING: RISK OF OSTEOSARCOMA
+
+                ul.block
+                    li Abaloparatide caused a dose-dependent increase in the incidence of osteosarcoma (a malignant bone tumor) in male and female rats. The effect was observed at systemic exposures to abaloparatide ranging from 4 to 28 times the exposure in humans receiving the 80mcg dose. It is unkown if TYMLOS will cause osteosarcoma in humans.

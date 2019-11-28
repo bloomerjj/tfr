@@ -1,0 +1,46 @@
+.modal.modal--example-script {
+
+
+
+    .modal__scroll {
+
+        @include mq('lg', 'xl') {
+            padding-bottom: 162px;
+        }
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        font-family: korolev, sans-serif;
+        font-weight: 400;
+        text-align: center;
+        color: #fff;
+        padding-bottom: 18px;
+    }
+
+    picture {
+        text-align: center;
+    }
+
+    @include mq("sm") {
+        picture {
+            max-width: 94%;
+        }
+    }
+
+    @include mq("lg", "xl") {
+        h1 {
+            margin-bottom: 75px;
+        }
+        h2 {
+            text-align: center;
+            padding-bottom: 0;
+        }
+    }
+
+
+
+}

@@ -1,0 +1,109 @@
+include /mixins/all.pug
+include /mixins/accordion.pug
+include /mixins/vzaar.pug
+
+doctype
+html(lang="en", xmlns:ng="http://angularjs.org", id="ng-app", ng-app="cdmp", ng-controller="MainController", ng-class="{'no-scroll': stickyFooterOpen || mobileMenuOpen }", class=((dev === true) ? "in-dev" : ""))
+
+    head
+        meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+        meta(charset="utf-8")
+
+        if page.title
+            title.
+                #{page.title}
+        else
+            title.
+                #{site.title}
+
+        if page.description
+            meta(name="description", content=page.description)
+        if page.keywords
+            meta(name="keywords", content=page.keywords)
+
+        meta(name="format-detection", content="telephone=no")
+
+        meta(id="viewport", name="viewport", content="target-densitydpi=device-dpi, width=device-width, user-scalable=0, minimal-ui")
+
+        +favicon("img/TYMLOS_Favicon.png")
+
+        //- +google-fonts("Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800")
+        +cblink("css/vendor/bootstrap.css")
+        +cblink("css/styles.css")
+
+        //- +iscript("js/inline/vp.js")
+
+        :raw
+          <!-- Google Tag Manager -->
+          <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+
+          {'gtm.start': new Date().getTime(),event:'gtm.js'}
+          );var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-NNBXPKK');</script>
+          <!-- End Google Tag Manager -->
+
+        +iscript("js/inline/cloak.js")
+
+        +iscript("https://code.jquery.com/jquery-3.2.1.min.js")
+
+        +iscript("js/inline/back-to-top.js")
+        +iscript("js/inline/adjust-styles.js")
+
+        //- TODO: REPLACE WITH YOUR FONT LINK!!!
+        //- +script("//fast.fonts.net/jsapi/7c67206d-0216-40d3-a06b-d9fe0ad25fea.js")
+
+    
+        :raw
+            <script src="https://use.typekit.net/wyx5bka.js"></script>
+            <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+        +iscript("js/inline/iev.js")
+
+        //- +ie("if IE 8")
+            +cblink("css/oldie.css")
+
+        +cbscript("js/head.js")
+
+    body(ontouchstart="", class="page--" + fileName, prime-directive="")
+
+        //- this block is used to put flood light tags and page specific tracking (NOT GOOGLE ANALYTICS)
+        block analytics
+          :raw
+              <!-- Google Tag Manager (noscript) -->
+              <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NNBXPKK"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+              <!-- End Google Tag Manager (noscript) -->
+
+        main(ng-class="{ 'mobile-nav-open': mobileMenuOpen }").content--main
+
+            include /partials/header--global.pug
+
+            article.content--article
+                block content
+
+                include /partials/isi--content.pug
+
+                include /partials/footer--global.pug
+
+            include /partials/back-top.pug
+
+            include /partials/footer--sticky.pug
+
+            .injector--modal
+
+            .injector--mobiscroll
+        
+        +cbscript("js/vendor.js")
+        +cbscript("js/templates.js")
+        +cbscript("js/app.js")
+
+        script(src='https://www.covermymeds.com/scripts/unleashed/bootstrap.js', type='text/javascript')
+
+        if dev
+            +not-ie
+                script.
+                    /local|ngrok|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/ig.test(location.hostname) && 'WebSocket' in window && window.WebSocket.CLOSING === 2 && document.write('\x3Cscript src="//' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1">\x3C/script>');
+                //- script.
+                    /local|ngrok|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/ig.test(location.hostname) && /iP(hone|od|ad)|Android|BlackBerry|IEMobile/i.test(navigator.userAgent) && document.write('<script src="//'+(location.host||"localhost").split(":")[0]+':8081/target/target-script-min.js">\x3c/script>');

@@ -1,0 +1,560 @@
+
+
+$mobileNavWidth: 256px;
+
+
+
+.mobile-nav-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: #0c0906;
+    opacity: 0.85;
+
+    z-index: 100;
+}
+
+
+
+header.header--global {
+    top: 0;
+    left: 0;
+    z-index: z("header", "global");
+    width: 100%;
+
+    @include mq("sm") {
+
+        .nav-open & {
+            z-index: z("header", "navopen");
+        }
+    }
+
+    .wrap--content {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    @include mq('xl') {
+        .wrap--content {
+            width: 1200px;
+        }
+    }
+
+    @media only screen and (min-width : 1025px) and (max-width : 1280px) {
+        width: 69%;
+    }
+
+
+    // element sizing applies to both lg and xl layouts, since we're just scaling down from the xl designs
+    @include mq('lg', 'xl') {
+
+        .wrap--content {
+            display: block;
+            padding-top: 34px;
+        }
+
+        nav {
+            min-height: 71px;
+            width: 100%;
+
+            @media only screen and (min-width : 1025px) and (max-width : 1280px) {
+                width: 100%;
+            }
+
+            .main-nav__top-level {
+                display: flex;
+                justify-content: space-between;
+
+                .main-nav-element {
+                    display: flex;
+                    margin-bottom: 0;
+                    height: 33px;
+                    box-sizing: content-box;
+                    padding: 0 .5em;
+
+                    a {
+                        display: flex;
+                        align-content: center;
+                        font-size: 16px;
+                        // need to override retina query for
+                        line-height: 33px;
+                        text-align: center;
+                        color: $text-orange;
+                        letter-spacing: 0.05em;
+                        transition: color 250ms;
+
+                        /*padding: 0 2%;*/
+
+                        @media only screen and (min-width : 1025px) and (max-width : 1280px) {
+                            /*padding: 0 12px;*/
+                        }
+                    }
+
+                    &.current {
+                        background-color: #2e2c2c;
+
+                        a {
+                            color: #fff;
+                        }
+                    }
+
+                    &.active, &:hover {
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            .main-nav__sub-level {
+                display: flex;
+                justify-content: flex-start;
+                background-color: #2e2c2c;
+                padding-left: 7px;
+
+                li {
+                    margin-right: 25px;
+
+                    a {
+                        color: #fcad5b;
+                        line-height: 33px;
+                        transition: color 250ms;
+                    }
+                    &.active {
+
+                        a {
+                            color: #fff;
+                        }
+                    }
+                    &:hover {
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+
+                &:nth-child(5) {
+
+                    @media only screen and (min-width : 1281px) and (max-width : 1440px) {
+                        padding-left: 380px!important;
+                    }
+
+                    @media only screen and (min-width : 1025px) and (max-width : 1280px) {
+                        padding-left: 46%!important;
+                    }
+                }
+
+                &:last-of-type  {
+                    /*padding-left: 640px!important;*/
+                    margin-left: -130px;
+
+                    @media only screen and (min-width : 1860px) {
+                        /*padding-left: 880px!important;*/
+                    }
+
+                    @media only screen and (min-width : 1440px) and (max-width : 1860px) {
+                        /*padding-left: 590px!important;*/
+                    }
+
+                    @media only screen and (min-width : 1281px) and (max-width : 1439px) {
+                        /*padding-left: 480px!important;*/
+                    }
+
+                    @media only screen and (min-width : 1025px) and (max-width : 1280px) {
+                        margin-left: -145px;
+                    }
+
+                    li:last-of-type {
+                        margin-right: 5px;
+                    }
+                }
+            }
+            a {
+                font-family: "korolev-condensed",sans-serif;
+                display: block;
+            }
+        }
+        .top-row {
+            height: 45px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 0 1%;
+        }
+        .logo-link {
+            width: 141px;
+        }
+        .utility-nav-container {
+
+            .utility-nav {
+
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+            li.utility-nav-element {
+                flex-shrink: 0;
+                margin-right: 57px;
+
+                &.last  {
+                    margin-right: 0;
+                }
+                a {
+                    font-family: "korolev",sans-serif;
+                    display: flex;
+                    align-items: center;
+                    font-size: 12px;
+                    line-height: 19px;
+                    text-decoration: underline;
+                    color: #fff; //#a9b0b3;
+                    letter-spacing: 0.02em;
+                }
+                .icon {
+                    margin-right: 8px;
+                }
+            }
+        }
+    }
+
+    // using vws here for font sizes so the font scales down appropriately since extra space wasn't given for nav elements to condense
+    @include mq('lg') {
+
+        .wrap--content {
+            width: 100%;
+            margin-left: 3%;
+        }
+
+        nav.utility-nav {
+
+            li.utility-nav-element {
+
+                a {
+                    font-size: 12px;
+                    font-size: 0.94vw;
+                    line-height: 19px;
+                    line-height: 1.48vw;
+                }
+            }
+        }
+        nav.main-nav {
+            padding: 0 2%;
+
+            li.main-nav-element {
+
+                a {
+                    font-size: 16px;
+                    font-size: 1.25vw;
+                    line-height: 33px;
+                }
+            }
+
+            li.sub-nav-element {
+                a {
+                    font-size: 16px;
+                    font-size: 1.25vw;
+                }
+            }
+        }
+    }
+
+
+    @include mq('md', 'sm') {
+        height: 114px;
+
+        .logo-link {
+            position: absolute;
+            left: 0;
+            top: 60px;
+            width: 108px;
+            height: 35px;
+        }
+        .hamburger-button {
+            margin-top: 16px;
+            width: 31px;
+            height: 22px;
+
+            .hamburger-button__inner {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 22px;
+            }
+
+            .line {
+                width: 100%;
+                height: 2px;
+                position: absolute;
+                left: 0;
+                background: $text-orange;
+                transform: rotate(0deg);
+                transition: 250ms;
+                border-radius: 2px;
+
+                &:nth-child(1) {
+                    top: 0;
+                }
+                &:nth-child(2), &:nth-child(3) {
+                    top: 7px;
+                }
+                &:nth-child(4) {
+                    top: 14px;
+                }
+            }
+            &.active .line {
+
+                &:nth-child(1) {
+                    top: 7px;
+                    width: 0%;
+                    left: 50%;
+                }
+                &:nth-child(2) {
+                    transform: rotate(45deg);
+                }
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                }
+                &:nth-child(4) {
+                    top: 7px;
+                    width: 0%;
+                    left: 50%;
+                }
+            }
+        }
+
+
+
+        nav {
+            .main-nav__top-level {
+                background-color: #f0f0f0;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                right: -$mobileNavWidth;
+                transition: right 250ms;
+                width: $mobileNavWidth;
+
+                .main-nav-element {
+                    min-height: 41px;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-bottom: 0;
+                    background-color: #ffffff;
+
+                    &:before {
+                        content: '';
+                        background-size: 11px;
+                        width: 11px;
+                        height: 11px;
+                        margin: 0 7px;
+                        z-index: 1;
+                        transition: transform 250ms;
+                    }
+
+                    &.has-subnav:before {
+                        background-image: url(../img/smr/mobile-nav-arrow.png);
+                    }
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 41px;
+                        width: 100%;
+                        background-image: linear-gradient( 0, rgb(204,204,204) 0%, rgba(204,204,204,0) 100%);
+                        z-index: 0;
+                        opacity: 0.48;
+                    }
+                    a, span {
+                        color: $text-orange;
+                        font-family: "korolev",sans-serif;
+                        font-weight: 700;
+                        z-index: 1;
+                        line-height: 41px;
+                    }
+
+
+                    &.current:before {
+                        transform: rotateZ(90deg);
+                    }
+
+                }
+                .main-nav__sub-level {
+                    width: 100%;
+                    background-color: $text-orange;
+
+                    a {
+                        color: #fff;
+                    }
+                }
+
+                .sub-nav-element {
+                    display: flex;
+                    align-items: center;
+                    padding-left: 39px;
+                    margin-bottom: 0;
+                    line-height: 41px;
+                    border-bottom: 1px solid #fff;
+
+                    &:before {
+                        content: '';
+                        width: 4px;
+                        height: 7px;
+                        // background-image: url(../img/smr/mobile-sub-nav-arrow.png);
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        margin-right: 17px;
+                    }
+                }
+
+            }
+
+
+            &.utility-nav  {
+                z-index: 1;
+                &.fixed {
+                    transition: top 500ms;    // for hidden class below
+
+                    left: 0;
+                    right: 0;
+                    top: 0;
+                    position: fixed;
+                    background-color: rgb(39, 37, 37);;
+                    padding: 0 12px;
+
+                    transition: right 250ms, left 250ms;
+                }
+
+                &.hidden {
+                    // top: -43px;
+                    top: -52px;
+                }
+                ul {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .utility-nav-element {
+                        max-width: percentage(65/320);
+
+                        &.last {
+                            max-width: 14%;
+                        }
+
+                        a {
+                            text-align: center;
+                            text-decoration: underline;
+                            color: #a9b0b3;
+                            font-size: 12px;
+                            line-height: 16px;
+                            margin-top: 15px;
+                        }
+
+                        img {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+
+
+
+        }
+    }
+}
+
+
+
+// Mobile nav stuff
+@include mq('md', 'sm') {
+    main {
+        // transition: transform 250ms;
+        left: 0;
+        transition: left 250ms;
+    }
+    main.mobile-nav-open {
+        // transform: translateX(-$mobileNavWidth);
+        left: -$mobileNavWidth;
+        overflow-x: visible;
+
+        header.header--global nav .main-nav__top-level {
+            right: 0;
+        }
+
+        nav.utility-nav.fixed {
+            right: $mobileNavWidth;
+            left: -$mobileNavWidth;
+        }
+
+        .utility-nav-element {
+            opacity: 0.15;
+            // this is because the burger menu needs to be 100% opacity but the utility nav links are supposed to be under the overlay
+            // but i've already done the markup and I don't want to change it now ¯\_(ツ)_/¯
+        }
+
+        .sub-nav-element {
+            font-size: 14px;
+            padding-left: 25px!important;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+// unfortunate ie11 overrides
+
+.eq-ie11 {
+
+    @include mq('lg', 'xl') {
+
+
+        header.header--global {
+            position: static;
+
+            .wrap--content {
+                margin: 0 auto;
+            }
+        }
+    }
+    @include mq('sm', 'md') {
+
+
+        header.header--global {
+            width: 100%;
+            // position: static;
+
+            nav.utility-nav {
+                width: 100%;
+
+                ul {
+                    display: block;
+                    width: 100%;
+                    font-size: 0;
+                    justify-content: inherit;
+                }
+
+                .utility-nav-element {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: 20%;
+                    margin-right: 11%;
+                }
+
+                .hamburger-button {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}

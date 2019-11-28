@@ -1,0 +1,29 @@
+.modal.modal--fracture-sites {
+
+
+    .image--fracture-sites {
+
+        @include mq('lg', 'xl') {
+            max-width: 854px;
+            margin-left: 185px;
+        }
+    }
+    p.references {
+        max-width: 897px;
+    }
+
+    @include mq('sm') {
+
+        .image--fracture-sites {
+            margin-bottom: 28px;
+        }
+
+        p.disclaimer {
+            margin-bottom: 50px;
+        }
+        p.references {
+            margin-bottom: 0;
+        }
+    }
+
+}

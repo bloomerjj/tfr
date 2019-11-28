@@ -1,0 +1,564 @@
+
+*, *:before, *:after {
+    position: relative;
+    box-sizing: border-box;
+    max-height: 1000000px; // Disables Android's font boosting
+    background: url(""); // Disables Android's Auto-Fit Pages
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Disables Tap Highlight Color
+}
+
+html,body {
+    // height: 100%;
+
+    background-color: #272525;
+}
+
+html {
+    font-size: 100%;
+    overflow-y: auto;
+
+    &.no-scroll {
+        overflow-y: initial;
+
+        body {
+            overflow: hidden;
+        }
+    }
+
+    &.keyboard-open {
+        @include mq("sm") {
+            header.header--global,
+            footer.footer--sticky {
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+        }
+    }
+}
+
+body {
+    -webkit-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    -webkit-text-size-adjust:100%;
+    -moz-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+}
+
+
+main {
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+
+    &:focus {
+        outline: 0;
+        outline: thin dotted \9; // IE6-9
+    }
+    &:hover {
+        text-decoration: none;
+    }
+
+    &.scroll-point {
+        margin-top: -10px;
+        position: absolute;
+        display: block;
+    }
+}
+
+article {
+    @include mq('lg', 'xl') {
+        // padding-top: 142px;
+    }
+    @include mq('md', 'sm') {
+        // padding-top: 133px;
+        padding-top: 0;
+    }
+}
+
+p a {
+    display: inline;
+}
+
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: normal;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+}
+
+label {
+    cursor: pointer;
+}
+
+.nobr,
+nobr {
+    white-space: nowrap;
+}
+
+.break-word {
+    word-wrap: break-word;
+}
+
+sub, sup {
+  font-size: 0.6em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+    top: -0.6em;
+
+    .eq-ie9 & {
+        top: -0.7em;
+    }
+    .eq-ie7 & {
+        top: -0.8em;
+    }
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+picture {
+    @include inline-block;
+
+    img {
+        max-width: 100%;
+    }
+}
+
+a > picture {
+    display: block;
+}
+
+.eq-ie9 * {
+    filter: none !important;
+}
+
+.eq-ie8 * {
+    filter: inherit;
+}
+
+
+section {
+
+
+
+    @include mq('lg', 'xl') {
+
+        .wrap--content {
+            padding-top: 36px;
+        }
+    }
+}
+.wrap--content {
+    margin: 0 auto;
+    height: 100%;
+    @include clearfix; // stop margin collapse
+
+    @include mq('xl') {
+        width: 1200px;
+        padding-right: 27%;
+    }
+
+    @include mq('xxl') {
+        padding-right: 15%;
+    }
+
+    @include mq('xxxl') {
+        padding-right: 0%;
+    }
+
+    @include mq("lg") {
+        width: calc(93.75% - 320px);
+        margin: 0 3%;
+        padding: $object-vertical-space 0;
+    }
+
+    @include mq("isi-hide") {
+        width: percentage(1200/1280);
+        margin: 0 auto;
+    }
+
+    @include mq('md') {
+        width: 100%;
+        padding: 12px;
+    }
+    @include mq("sm") {
+        width: 100%;
+        padding: 12px;
+
+        &.wrap--full {
+            width: 100%;
+            margin-left: 0;
+            padding: 0;
+        }
+    }
+}
+
+.cf {
+    @include clearfix;
+}
+
+.cb {
+    clear: both;
+}
+
+.cr {
+    clear: right;
+}
+
+.cl {
+    clear: left;
+}
+
+
+.hide--xl {
+    @include mq("xl") {
+        display: none !important;
+    }
+}
+.hide--lg {
+    @include mq("lg") {
+        display: none !important;
+    }
+}
+
+.hide--md {
+    @include mq("md") {
+        display: none !important;
+    }
+}
+
+.hide--sm {
+    @include mq("sm") {
+        display: none !important;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+
+ul {
+    display: block;
+
+    > li {
+        display: block;
+    }
+
+    > li:before {
+        width: 0;
+        overflow: visible;
+        float: left;
+    }
+
+    &.bullet {
+        padding-left: 15px;
+
+        > li:before {
+            content: '\2022';
+            font-size: 0.8em;
+            margin: 0 5px 0 -15px;
+        }
+    }
+
+    &.block {
+        padding-left: 13px;
+
+        > li:before {
+            float: none;
+            display: inline-block;
+            vertical-align: middle;
+            content: '';
+            // font-size: 1em;
+            // line-height: 1em;
+            width: 6px;
+            width: 0.375rem;
+            height: 6px;
+            height: 0.375rem;
+            // top: 3px;
+            top: -0.15rem;
+            left: 1px;
+            margin: 0 7px 0 -13px;
+            background-color: #bfbfbf;
+            @include mq("sm") {
+                top: -0.1rem;
+            }
+        }
+    }
+
+    &.block.magenta > li:before {
+        background-color: #c4248f;
+    }
+}
+
+
+ul.dash {
+    display: block;
+
+    @include mq("lg", "md", 'xl') {
+        padding-left: 15px;
+    }
+
+    @include mq("sm") {
+        padding-left: 10px;
+    }
+
+    > li {
+        display: block;
+    }
+    > li:before {
+        content: '\2013';
+        width: 0;
+        overflow: visible;
+        float: left;
+        font-size: 0.8em;
+
+        @include mq("lg", "md", 'xl') {
+            margin: 0 5px 0 -15px;
+        }
+
+        @include mq("sm") {
+            margin: 0 2px 0 -10px;
+        }
+    }
+    &.dash--m {
+
+        @include mq("lg", "md", 'xl') {
+            padding-left: 13px;
+        }
+
+        > li:before {
+            content: '\2014';
+            font-weight: 700;
+            font-size: 1.2em;
+
+            @include mq("lg", "md", 'xl') {
+                margin: 0 5px 0 -13px;
+            }
+
+        }
+    }
+}
+
+ol.letter {
+    display: block;
+    counter-reset: lettered;
+
+    @include mq("lg", "md", 'xl') {
+        padding-left: 15px;
+    }
+
+    @include mq("sm") {
+        padding-left: 0;
+    }
+
+    > li {
+        position: relative;
+        display: block;
+        counter-increment: lettered;
+    }
+    > li:before {
+        content: counter(lettered, lower-alpha);
+        margin: 0 5px 0 -15px;
+        width: 0;
+        overflow: visible;
+        float: left;
+
+        @include mq("sm") {
+            margin: 0;
+            width: auto;
+            float: none;
+        }
+    }
+}
+
+ol.number {
+    display: block;
+    counter-reset: numbered;
+
+    @include mq("lg", "md", 'xl') {
+        padding-left: 15px;
+    }
+
+    @include mq("sm") {
+        padding-left: 18px;
+    }
+
+    > li {
+        display: block;
+        counter-increment: numbered;
+    }
+    > li:before {
+        content: counter(numbered, decimal) ".";
+        width: 0;
+        overflow: visible;
+        float: left;
+
+        @include mq("lg", "md", 'xl') {
+            margin: 0 5px 0 -15px;
+        }
+
+        @include mq("sm") {
+            margin: 0 2px 0 -18px;
+        }
+    }
+}
+
+// .asterisk {
+//     margin-left: 9px;
+
+//     &:before {
+//         content: '\002A';
+//         position: absolute;
+//         right: 100%;
+//         padding-right: 2px;
+//     }
+// }
+
+// http://www.benmarshall.me/responsive-iframes/
+.intrinsic-container {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+
+    iframe, img {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+    padding-bottom: 56.25%;
+}
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+    padding-bottom: 75%;
+}
+
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.pronounciation {
+    @include inline-block;
+    cursor: pointer;
+}
+
+
+.veil {
+    visibility: hidden !important;
+}
+
+
+.scroll-fix {
+    @include mq("lg") {
+        overflow: hidden;
+    }
+}
+.scroller {
+    @include mq("lg") {
+        min-width: 1024px;
+    }
+    @include mq("sm") {
+        min-width: 320px;
+    }
+}
+
+.align--left {
+    text-align: left;
+}
+
+
+// STACKABLE BOXES
+
+.wrap--boxes {
+    white-space: normal;
+    @include mq("lg") {
+        white-space: nowrap;
+    }
+    @include mq("md", "sm") {
+        padding-top: $object-vertical-space;
+        padding-bottom: $object-vertical-space;
+        text-align: center;
+    }
+}
+
+.half, .third, .quarter {
+    white-space: normal;
+    display: inline-block;
+    width: 100%;//for mobile for all of these
+    vertical-align: top;
+}
+
+@include mq("lg") {
+    .half {
+        width: 50%;
+    }
+    .third {
+        width: 33.3%;
+    }
+    .quarter {
+        width: 25%;
+    }
+}
+
+@include mq("md") {
+    .half {
+        width: 50%;
+    }
+    .quarter {
+        width: 50%;
+    }
+}
+
+@include mq("md", "sm") {
+    .half, .third, .quarter {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// END STACKABLE BOXES
+
+
+
+//viewport width stuff!
+.wrap--content-vw {
+    padding: $content-paddingY-vw $content-paddingX-vw;
+}
+
+
+
+
+.no-vertical-padding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+

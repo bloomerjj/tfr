@@ -1,0 +1,140 @@
+aside.aside--isi {
+    background-color: #272525;
+    border-top: 2px solid #711e5e;
+    position: relative;
+    strong, .bold, b {
+        font-weight: 500;
+    }
+
+    .footer-plus-icon{
+        background: #711e5e;
+        position: absolute;
+        top: 0;
+        right: 5%;
+        width: 33px;
+        height: 25px;
+        font-size: 30px;
+        text-align: center;
+        line-height: 26px;
+        z-index: 1000;
+        color: white;
+        &:hover {
+            color: white;
+        }
+    }
+    h2 {
+
+        @include helNeue('Medium');
+        color: $text-orange;
+
+
+        @include mq('md', 'lg', 'xl') {
+            margin-bottom: 5px;
+        }
+        @include mq('sm') {
+            margin-bottom: 0;
+        }
+    }
+    p, li {
+        @include helNeue('Light');
+        color: #fff;
+
+        &.orange {
+            color: $text-orange;
+        }
+
+        strong {
+            @include helNeue('Medium');
+        }
+    }
+
+    p {
+        @include mq('md', 'lg', 'xl') {
+            font-size: 15px;
+            line-height: 18px;
+            letter-spacing: 0;
+        }
+    }
+
+    .sidebar li {
+        @include helNeue('Medium');
+
+    }
+
+    li {
+        &:before {
+            color: #c1c1c1;
+        }
+
+        @include mq('md', 'lg', 'xl') {
+            font-size: 15px;
+            line-height: 18px;
+            letter-spacing: 0;
+        }
+    }
+    .orange-underline {
+        color: #fd8204;
+        text-decoration: underline;
+    }
+
+
+    .columns {
+        display: flex;
+    }
+
+
+    @include mq('md', 'lg', 'xl') {
+
+        .wrap--content {
+            padding-top: 15px;
+        }
+        .main {
+            width: percentage(753/1200);
+            // margin-right: percentage(53/1200);
+            margin-right: 4%;
+                padding-top: 6px;
+        }
+        .sidebar {
+            // width: percentage(395/1200);
+
+            width: 36%;
+            padding-top: 22px;
+
+            p {
+                margin-bottom: 3px;
+            }
+        }
+
+        .references {
+            padding-top: 36px;
+        }
+
+        p.full-prescribing-info {
+            margin-top: 38px;
+        }
+    }
+
+    @include mq('sm') {
+
+
+        .columns {
+            margin-top: 8px;
+            flex-direction: column-reverse;
+        }
+        li {
+            font-size: 16px;
+            line-height: 20px;
+            @include helNeue('Medium');
+            letter-spacing: 0.025em;
+        }
+        p {
+            font-size: 18px;
+            line-height: 18px;
+        }
+
+        .limitations {
+            display: block;
+            margin-bottom: 5px;
+        }
+    }
+}

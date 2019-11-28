@@ -1,0 +1,63 @@
+footer(ng-style="{'padding-bottom': (offsetBottom + 'px')}").footer--global
+    .wrap--content
+
+        nav.footer-nav
+            ul
+                li
+                    a(href="http://radiuspharm.com/terms-of-use/" target="_blank" track-event="['ext_footer_TermsOfUse', 'Click', \"Click on 'Terms of Use' link\"]") Terms of Use
+                li
+                    a(href="http://radiuspharm.com/privacy-policy/" target="_blank" track-event="['ext_footer_PrivacyPolicy', 'Click', \"Click on 'Privacy Policy' link\"]") Privacy Policy
+                li
+                    a(href="http://radiuspharm.com/contact/" target="_blank" track-event="['ext_footer_Contact', 'Click', \"Click on 'Contact' link\"]") Contact
+                li
+                    a(href="http://preferences-mgr.trustarc.com/?pid=radiushealth01&aid=radiushealth01&type=radiushealth" target="_blank" track-event="['ext_footer_CookiePolicy', 'Click', \"Click on 'Cookie Policy' link\"]") Cookie Policy                    
+
+        .bottom-row.hide--sm
+
+            .left 
+
+                p.hcp This site is intended for HCPs in the United States.
+
+                p.copyright 
+                    strong TYMLOS is a registered trademark of Radius Health, Inc.
+
+
+            .middle
+
+                p.endmatter.hide--sm &copy; 2018 Radius Health, Inc.&nbsp;&nbsp;&nbsp;All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;07/18.&nbsp;&nbsp;&nbsp;TYM-US-01775
+
+            .right
+
+                a(href="http://radiuspharm.com/" target="_blank" track-event="['ext_footer_RadiusLogo', 'Click', \"Click on 'Radius' logo\"]").logo
+                    picture
+                        | <!--[if IE 9]><video style="display: none;"><![endif]-->
+                        source(media="(max-width: 640px)" srcset="img/smr/radius-logo.png")
+                        source(srcset="img/lg/radius-logo.png 1x, img/lgr/radius-logo.png 2x")
+                        | <!--[if IE 9]></video><![endif]-->
+                        img(srcset="img/lg/radius-logo.png" alt="Radius Pharm Logo")
+
+
+
+        .bottom-row.hide--md.hide--lg.hide--xl
+
+            p This site is intended for HCPs in the United States.
+                br 
+                strong TYMLOS is a registered trademark of Radius Health, Inc.
+            
+            .columns
+
+                .left
+                    p &copy; 2018 Radius Health, Inc.
+                        br
+                        | All rights reserved.  07/18.
+                        br
+                        | TYM-US-01775
+
+                .right
+
+                    a(href="http://radiuspharm.com/" target="_blank" track-event="['ext_footer_RadiusLogo', 'Click', \"Click on 'Radius' logo\"]").logo
+                        picture
+                            | <!--[if IE 9]><video style="display: none;"><![endif]-->
+                            source(srcset="img/smr/radius-logo.png")
+                            | <!--[if IE 9]></video><![endif]-->
+                            img(srcset="img/l/smr/radius-logo.png" alt="Radius Pharm Logo")

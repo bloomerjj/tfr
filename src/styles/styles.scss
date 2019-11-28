@@ -1,0 +1,63 @@
+@charset "UTF-8";
+// http://www.sitepoint.com/architecture-sass-project/
+
+/* Last Updated: #{current-date()} at #{current-time('%r')} */
+
+// Helpers
+@import "helpers/__helpers.scss";
+// The helpers/ folder (sometimes called utils/) gathers all Sass tools and helpers we’ll use
+// across the project. Got a function? A mixin? Put it in there. This folder also contains
+// a _variables.scss file (sometimes _config.scss) which holds all global variables for the
+// project (for typography, color schemes, and so on).
+
+// Base
+@import "base/__base.scss";
+// The base/ folder holds what we might call the boilerplate stuff for your project.
+// In there, you might find the reset (or Normalize.css, or whatever), probably some
+// stuff dealing with typography, and, depending on the project, maybe some other files.
+
+// Components
+@import "components/__components.scss";
+// For smaller components, there is the components/ folder (frequently called modules/).
+// While layout/ is kind of macro (defining the global wireframe), components/ is more micro.
+// It can contain all kinds of specific modules like a slider, a loader, a widget, or anything
+// along those lines. There are usually a lot of files in components/ since your site is should
+// be mostly composed of tiny modules.
+
+// Layout
+@import "layout/__layout.scss";
+// The layout/ directory (sometimes called partials/) usually contains a number of files,
+// each of them setting some styles for the main sections of the layout (header, footer,
+// and so on). It also contains the _grid file which is the grid system used to build
+// the layout.
+
+// Pages
+@import "pages/__pages.scss";
+// If you have page-specific styles, I think it’s cool to put them in a pages/ folder and in a file
+// named after the page. For example, it’s not uncommon to have very specific styles for the home page,
+// so you’d have a _home.scss file in pages/ dealing with this.
+
+// Views
+@import "views/__views.scss";
+// View specific styles (since we are doing angular views)
+
+// Vendors
+@import "vendor/__vendor.scss";
+// And last but not least, you will probably have a vendors/ folder containing all the CSS files from external
+// libraries and frameworks – Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, and so on. Putting those
+// aside in the same folder is a good way to tell “Hey, this is not from me, not my code, not my responsibility”.
+
+
+
+
+@import "_zoom_overrides.scss";
+
+
+
+// Shame
+/* SHAME START */
+@import "_shame.scss";
+/* SHAME END */
+// The idea of shame is that you have a totally new stylesheet reserved just for your hacky code.
+// The code you have to write to get the release out on time, but the code that makes you ashamed.
+ 

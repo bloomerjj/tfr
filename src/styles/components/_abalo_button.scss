@@ -1,0 +1,131 @@
+
+
+@mixin abalo-button-bg($start, $middle, $stop) {
+    background-image: -moz-linear-gradient( 90deg, $start 0%, $middle 25%, $stop 100% );
+    background-image: -webkit-linear-gradient( 90deg, $start 0%, $middle 25%, $stop 100%);
+    background-image: -ms-linear-gradient( 90deg, $start 0%, $middle 25%, $stop 100%);
+}
+
+.button--abalo {
+    display: flex;
+    justify-content: space-between;
+    min-height: 57px;
+    max-width: 100%;
+    align-items: center;
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: #898888;
+    border-right-color: #898888;
+    border-left-color: #0f0e0e;
+    border-bottom-color: #0f0e0e;
+
+
+    $opacity: 0.15;
+
+    @include abalo-button-bg(rgba(151,151,151, 0.2), rgba(#666, $opacity), rgba(255,255,255, 0.2));
+
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.6), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.5);
+
+    transition: background-color 250ms;
+
+    &:after {
+        content: '';
+        width: 41px;
+        min-height: inherit;
+        // border-left: 1px solid #696868;
+    }
+    &:before {
+        content: '';
+        position: absolute;
+        right: 17px;
+        top: 50%;
+        margin-top: -6px;
+        $arrow-size: 6px;
+        width: 0; 
+        height: 0; 
+        border-top: $arrow-size solid transparent;
+        border-bottom: $arrow-size solid transparent;
+        border-left: $arrow-size solid #fff;
+    }
+
+    &.video-left {
+        &:after {
+            background-image: url(../img/lg/icon-button-video.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border: none;
+            height: 37px;
+            top: 20%;
+            margin-top: 0px;
+            left: 14px;
+            position: absolute;
+            width: 36px;
+        }
+
+        p {
+            padding-left: 60px;
+            padding-right: 30px;
+        }
+    }
+
+    p {
+        margin-bottom: 0;
+        padding-left: 15px;
+    }
+
+
+
+
+    &:hover {
+        background-color: #c3258e;
+    }
+
+    &.spaced-text p {
+        letter-spacing: 0.5px;
+    }
+
+
+    @include mq('md','lg', 'xl') {
+        width: 437px;
+        min-height: 57px;
+
+        p {
+            max-width: 437 - 15 - 41 + px;
+            // max-width: 314px; // firefox & safari friendly
+        }
+    }
+    @include mq('md') {
+
+    }
+    @include mq('sm') {
+        min-height: 64px;
+        margin-bottom: 35px;
+
+        p {
+            font-size: 18px;
+            line-height: 19px;
+            padding-right: 15px;
+        }
+
+        &.video-left {
+            &:before {
+                background-image: url(../img/smr/icon-button-video.png);
+            }
+        }
+    }
+
+
+    .eq-ie11 & {
+        display: table;
+
+        p {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+    }
+}

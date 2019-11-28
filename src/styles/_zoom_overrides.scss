@@ -1,0 +1,48 @@
+
+
+// This class is applied when site is viewed in IE11 and zoomed past 150%;
+// Script is located in scripts/vendor/hangar-zoom.js
+.ie-custom {
+
+
+
+    .hide--zoom {
+        display: none;
+    }
+
+
+    .desktop-sticky-isi {
+
+
+        h2 {
+            font-size: 1.68vw;
+            line-height: 1.05vw;
+        }
+
+        p {
+            font-size: 1.27vw;
+            line-height: 1.27vw;
+
+            // this is to eliminate crashing of underline and text below
+            .orange-underline {
+                display: block;
+                margin-bottom: 0.25vw;
+            }
+        }
+
+        li {
+            font-size: 1.27vw;
+            line-height: 1.27vw;
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+}

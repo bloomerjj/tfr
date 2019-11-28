@@ -1,0 +1,31 @@
+
+//- this mixin is for one icon column.  wrap all instances of this in .abalo-icon-columns to apply styles
+
+mixin abalo-icon-column(imgFileName)
+
+    
+    .abalo-icon-column
+
+        .column-inner
+
+            img(src=imgFileName).icon
+
+            .content
+                block
+
+
+
+//- see styles in components/_abalo_accordion_button.scss
+//- ng-click triggers function in accordionSection directive
+mixin abalo-accordion-button
+
+    .accordion-button(ng-click="toggleSection()" ng-class="{ open: sectionOpen }")&attributes(attributes)
+
+        p
+            block
+
+
+        .state-icon
+            .icon.icon-plus
+
+            .icon.icon-minus

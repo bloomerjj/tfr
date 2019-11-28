@@ -1,0 +1,35 @@
+.modal.modal--extension-study {
+
+
+    p.references {
+        max-width: 815px;
+        margin: 15px 0 0 5px;
+    }
+
+    @include mq('lg', 'xl') {
+
+        .mobile-container {
+            max-width: 967px;
+        }
+    }
+    @include mq('md', 'lg', 'xl') {
+
+
+        .modal__scroll {
+            padding-top: 144px;
+            padding-right: 25px;
+        }
+    }
+
+    @include mq('sm') {
+
+        .extension-study-design {
+            margin-bottom: 28px;
+        }
+
+        p.references {
+            margin-top: 45px;
+            margin-bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,214 @@
+
+
+
+
+mixin desktop-utility-nav-element(targetUrl, icon)
+
+    li&attributes(attributes).utility-nav-element
+
+        a(href=targetUrl, target="_blank")
+
+            img(src="img/lg/"+ icon).icon
+
+            span 
+
+                block 
+
+
+//- DESKTOP - main nav
+//- mixin desktop-main-nav-element(targetUrl, trackCategory, trackLabel)
+
+//-     li(set-desktop-subnav-position)&attributes(attributes)
+
+//-         a(href=targetUrl, track-event="['header_"+ trackCategory +"', 'Click', \""+ trackLabel +"\"]")
+
+//-             block 
+
+//- DESKTOP - sub nav
+//- mixin desktop-sub-nav-element(targetUrl, trackCategory, trackLabel)
+
+//-     li&attributes(attributes)
+
+//-         a(href=targetUrl, track-event="['header_"+ trackCategory +"', 'Click', \""+ trackLabel +"\"]")
+
+//-             block 
+
+
+
+
+
+
+//- mixin desktop
+
+
+mixin anchor-element(targetFile, targetElement)
+
+    li&attributes(attributes)
+
+        a(ng-click="goToAnchor('" + targetFile+"', '"+targetElement+"')")
+
+            block 
+
+
+
+
+
+
+
+//-  MOBILE - main nav
+mixin mobile-main-nav-element(targetUrl, trackCategory, trackLabel)
+
+    div&attributes(attributes)
+
+        a(href=targetUrl, track-event="['header_"+ trackCategory +"', 'Click', \""+ trackLabel +"\"]")
+
+            block 
+
+
+
+
+//- MOBILE - sub nav
+mixin mobile-sub-nav-container
+
+    div&attributes(attributes)
+
+        span 
+            block 
+
+
+mixin mobile-anchor-sub-nav-container(targetUrl, name, trackCategory, trackLabel)
+
+    div&attributes(attributes)
+
+        a(href=targetUrl, track-event="['header_"+ trackCategory +"', 'Click', \""+ trackLabel +"\"]")= name
+
+
+
+
+.mobile-nav-overlay(ng-show="mobileMenuOpen === true")
+
+
+
+header(watch-height="offsetTop").header--global
+    .wrap--content
+    
+        .top-row.hide--sm.hide--xs
+            .logo-link
+                picture
+                    | <!--[if IE 9]><video style="display: none;"><![endif]-->
+                    source(media="(max-width: 1024px)", srcset="img/smr/tymlos-abaloparatide-injection-logo.png")
+                    source(media="(min-width: 1025px)", srcset="img/lg/tymlos-abaloparatide-injection-logo.png 1x, img/lgr/tymlos-abaloparatide-injection-logo.png 2x")
+                    | <!--[if IE 9]></video><![endif]-->
+                    img(srcset="img/lg/tymlos-abaloparatide-injection-logo.png" alt="Tymlos Abaloparatide Injection Logo")
+            .utility-nav-container(sticky-scroll)
+                nav( ng-class="{ 'hidden': showBar === false, 'fixed': isFixed === true }").utility-nav
+                    ul
+
+                        +desktop-utility-nav-element('https://www.tymloshcp.com', 'icon-patient-site.png') HCP Site
+
+                        +desktop-utility-nav-element('https://radiuspharm.com/wp-content/uploads/tymlos/tymlos-prescribing-information.pdf', 'icon-info.png')(track-event="['ext_header_PrescribingInfo', 'Click', \"Click on 'Prescribing Information' link\"]") Prescribing Information
+
+                        +desktop-utility-nav-element('https://radiuspharm.com/wp-content/uploads/tymlos/tymlos-medication-guide.pdf', 'icon-med-guide.png')(track-event="['ext_header_MedicationGuide', 'Click', \"Click on 'Medication Guide' link\"]") Medication Guide
+
+                        +desktop-utility-nav-element('https://www.tymlos.com/', 'icon-patient-site.png')(track-event="['ext_header_PatientSite', 'Click', \"Click on 'Patient Site' link\"]").last Patient Site
+
+
+        .top-row.hide--md.hide--lg.hide--xl
+            .utility-nav-container(sticky-scroll)
+                nav( ng-class="{ 'hidden': showBar === false, 'fixed': isFixed === true }").utility-nav
+                    ul
+
+                        +desktop-utility-nav-element('https://www.tymloshcp.com', 'icon-patient-site.png') HCP Site
+
+                        +desktop-utility-nav-element('https://radiuspharm.com/wp-content/uploads/tymlos/tymlos-prescribing-information.pdf', 'icon-info.png')(track-event="['ext_header_PrescribingInfo', 'Click', \"Click on 'Prescribing Information' link\"]") Prescribing Information
+
+                        +desktop-utility-nav-element('https://radiuspharm.com/wp-content/uploads/tymlos/tymlos-medication-guide.pdf', 'icon-med-guide.png')(track-event="['ext_header_MedicationGuide', 'Click', \"Click on 'Medication Guide' link\"]") Medication Guide
+
+                        +desktop-utility-nav-element('https://www.tymlos.com/', 'icon-patient-site.png')(track-event="['ext_header_PatientSite', 'Click', \"Click on 'Patient Site' link\"]").last Patient Site
+            .logo-link
+                img(srcset="img/logo-mobile.png" alt="Tymlos Abaloparatide Injection Logo" style="width: 158px;" width=158)
+
+        // - DESKTOP
+
+            //- Note: for the current page/section (not the selected state), the page name and section must be accurately added to that page file's yaml, and must match the site.yaml nav data.
+
+        // div(ng-init="currentSubNav = '"+page.section+"'; defaultSubNav = '"+page.section+"'")
+
+        // nav(ng-mouseleave="closeSubNav()").main-nav.hide--sm.hide--md
+        //     ul.main-nav__top-level
+
+
+        //         //- Navigation elements can be updated globally in markup/data/site.yaml
+
+        //         each navElement in site.nav
+        //             //- SECTIONS WITH CHILD PAGES
+        //             if (navElement.subpages)
+        //                 +desktop-main-nav-element(navElement.url,navElement.ga.cat,navElement.ga.lab)(ng-mouseover="openSubNav('"+navElement.name+"')" ng-class="{ current: currentSubNav === '"+navElement.name+"', active: '"+navElement.name+"' === '"+page.section+"' }").main-nav-element #{navElement.name}
+        //             //- INDIVIDUAL PAGES WITH ANCHOR LINKS
+        //             else if (navElement.anchorLinks)
+        //                 +desktop-main-nav-element(navElement.url,navElement.ga.cat,navElement.ga.lab)(ng-mouseover="getAnchorSubnav('"+navElement.url+"', '"+navElement.name+"')" ng-class="{ current: currentSubNav === '"+navElement.name+"', active: '"+navElement.name+"' === '"+page.section+"' }").main-nav-element #{navElement.name}
+        //             //- REGULAR OLD PAGES
+        //             else
+        //                 +desktop-main-nav-element(navElement.url,navElement.ga.cat,navElement.ga.lab)(ng-mouseover="openSubNav('')" ng-class="{ active: '"+navElement.name+"' === '"+page.section+"' }").main-nav-element #{navElement.name}
+
+
+        //     each navElement in site.nav
+        //         //- SECTIONS WITH CHILD PAGES
+        //         if (navElement.subpages)
+        //             ul(ng-show="currentSubNav === '"+navElement.name+"'" ng-class="{ active: '"+navElement.name+"' === '"+page.section+"' }").main-nav__sub-level
+        //                 each subElement in navElement.subpages
+        //                     +desktop-sub-nav-element(subElement.url,subElement.ga.cat,subElement.ga.lab+" in "+ navElement.name + " menu")(ng-class="{ active: isActivePage('"+subElement.url+"') }").sub-nav-element #{subElement.name}
+        //         //- INDIVIDUAL PAGES WITH ANCHOR LINKS
+        //         if (navElement.anchorLinks)
+        //             ul(ng-show="currentSubNav === '"+navElement.name+"'" ng-class="{ active: '"+navElement.name+"' === '"+page.section+"' }").main-nav__sub-level
+        //                 each subElement in navElement.anchorLinks
+        //                     li
+        //                         a(href=(navElement.url + "#" + subElement.id) ng-class="{ active: isActivePage('"+subElement.id+"') }" track-event="['header_"+subElement.ga.cat+"', 'Click', \""+subElement.ga.lab+" in "+ navElement.name +" menu\"]").sub-nav-element #{subElement.name}
+
+
+
+
+
+
+        //- MOBILE
+        // nav.main-nav.hide--lg.hide--xl
+        //     .main-nav__top-level
+
+
+        //         //- Navigation elements can be updated globally in markup/data/site.yaml
+
+        //         each navElement in site.nav
+
+
+        //             //- SECTIONS WITH CHILD PAGES
+        //             if (navElement.subpages)
+
+        //                 div(ng-click="currentSubNav = '"+navElement.name+"'" ng-class="{ current: currentSubNav === '"+navElement.name+"' }")
+
+        //                     +mobile-sub-nav-container.main-nav-element.has-subnav #{navElement.name}
+
+        //                     ul(ng-show="currentSubNav === '"+navElement.name+"'").main-nav__sub-level
+
+        //                         each subElement in navElement.subpages
+
+        //                             +desktop-main-nav-element(subElement.url,subElement.ga.cat, subElement.ga.lab+" in "+ navElement.name +" menu")(ng-class="{ active: isActivePage('"+subElement.url+"') }").sub-nav-element #{subElement.name}
+
+
+        //             //- INDIVIDUAL PAGES WITH ANCHOR LINKS
+        //             else if (navElement.anchorLinks)
+
+        //                 div(ng-click="currentSubNav = '"+navElement.name+"'" ng-class="{ current: currentSubNav === '"+navElement.name+"' }")
+
+        //                     +mobile-sub-nav-container.main-nav-element.has-subnav #{navElement.name}
+
+        //                     ul(ng-show="currentSubNav === '"+navElement.name+"'").main-nav__sub-level
+
+        //                         each subElement in navElement.anchorLinks
+
+        //                           li
+        //                             a(href=(navElement.url + "#" + subElement.id) ng-class="{ active: isActivePage('"+subElement.id+"') }" track-event="['header_"+subElement.ga.cat+"', 'Click', \""+subElement.ga.lab+" in "+ navElement.name +" menu\"]").sub-nav-element #{subElement.name}
+
+
+        //             //- REGULAR OLD PAGES
+        //             else
+        //                 +mobile-main-nav-element(navElement.url,navElement.ga.cat,navElement.ga.lab)(ng-click="currentSubNav = ''").main-nav-element #{navElement.name}

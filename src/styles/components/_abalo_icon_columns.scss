@@ -1,0 +1,71 @@
+.abalo-icon-columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    // set full element width individually from instance to instance.
+    width: 774px;   // this is just a placeholder/default value
+    max-width: 100%;
+
+    // for markup see markup/mixins/abalo-mixins.pug
+    .abalo-icon-column {
+        text-align: center;
+
+        .icon {
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 16px;
+            color: #fd8204;
+        }
+    }
+
+
+    @include mq('md', 'lg', 'xl') {
+
+        &.quarters {
+            .abalo-icon-column {
+                width: 25%;
+            }
+        }
+
+        &.thirds {
+            .abalo-icon-column {
+                width: 33.3333%;
+
+                .column-inner {
+                    text-align: center;
+                    display: inline-block;
+                }
+
+                &:nth-of-type(3n + 1) {
+                    text-align: left;
+                }
+                &:nth-of-type(3n + 3) {
+                    text-align: right;
+                }
+            }
+        }
+
+    }
+    @include mq('sm') {
+        margin-top: 30px;
+        margin-bottom: 50px;
+
+        &.quarters {
+            .abalo-icon-column {
+                width: 50%;
+            }
+        }
+
+        &.thirds {
+            .abalo-icon-column {
+                width: 50%
+            }
+        }
+
+    }
+
+}

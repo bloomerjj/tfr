@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.5 90.6">
+  <defs>
+    <style>
+      .b57d9188-0d30-48f0-a252-2087ef0241ef {
+        fill: #f48020;
+      }
+
+      .b1dbfdf3-6a0c-4b77-8d23-7839ad1d73b7 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>Small orange square representing osteoblast</title>
+  <g id="652eafb0-9bf9-4b3a-952b-320edcd634a1" data-name="Layer 2">
+    <g id="8c338452-c7b1-41b0-a48a-d303bb6c4e53" data-name="Layer 1">
+      <g class="block">
+        <path class="b57d9188-0d30-48f0-a252-2087ef0241ef" d="M77.6,88.6c-27.7,2.6-41.7,2.6-69.5.2A8.8,8.8,0,0,1,.2,80.2L0,10.7A8.9,8.9,0,0,1,7.8,2C35.6-.6,49.6-.6,77.4,1.8a8.9,8.9,0,0,1,7.9,8.6c.1,27.8.1,41.7.2,69.5a8.9,8.9,0,0,1-7.9,8.7"/>
+        <path class="b1dbfdf3-6a0c-4b77-8d23-7839ad1d73b7" d="M61.3,45.2A18.6,18.6,0,1,1,42.7,26.8,18.5,18.5,0,0,1,61.3,45.2"/>
+      </g>
+    </g>
+  </g>
+</svg>

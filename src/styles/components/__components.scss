@@ -1,0 +1,18 @@
+// Components
+
+// For smaller components, there is the components/ folder (frequently called modules/).
+// While layout/ is kind of macro (defining the global wireframe), components/ is more micro.
+// It can contain all kinds of specific modules like a slider, a loader, a widget, or anything
+// along those lines. There are usually a lot of files in components/ since your site is should
+// be mostly composed of tiny modules.
+
+@import "_sprites.scss";
+@import "_accordions.scss";
+@import "_forms.scss";
+@import "_masks.scss";
+
+@import "_abalo_button.scss";
+@import "_abalo_accordion_button.scss";
+@import "_abalo_icon_columns.scss";
+@import "_purple_callout.scss";
+@import "_video_player.scss";

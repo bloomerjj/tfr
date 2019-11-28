@@ -1,0 +1,138 @@
+// ------ STYLE COLORS ---------
+
+$color-blue         : #2B7CD0;
+$color-yellow       : #F7B84F;
+$color-orange       : #E65C00;
+$color-teal         : #2BBDD0;
+$color-red          : #DB0D1E;
+$color-green        : #50C48A;
+$color-lime         : #8BD422;
+$color-purple       : #BD10E0;
+$color-dark-purple  : #4d113c;
+
+$color-text     : #000;
+$color-text-alt : #6F7378;
+
+$color-text-knockout: complement($color-text);
+$color-text-invert  : invert($color-text);
+
+$color-error:   $color-red;
+$color-valid:   $color-green;
+$color-warning: $color-yellow;
+$color-info:    $color-blue;
+
+
+
+// --------- Spacing -----------
+$content-paddingX: auto;
+$content-paddingY: 50px;
+
+$content-paddingX-vw: 5vw;
+$content-paddingY-vw: 3vw;
+
+$content-paddingX-pct: 5%;
+$content-paddingY-pct: 2%;
+
+$object-vertical-space: $content-paddingY;
+$object-vertical-space-vw: $content-paddingY-vw;
+
+
+// ---------- Bourbon ----------
+
+$prefix-for-webkit    : true;
+$prefix-for-mozilla   : true;
+$prefix-for-microsoft : true;
+$prefix-for-opera     : true;
+$prefix-for-spec      : true;
+
+$em-base : 16;
+
+// ---------- Compass ----------
+
+// $legacy-support-for-ie  : true;
+// $legacy-support-for-ie6 : true;
+// $legacy-support-for-ie7 : true;
+// $legacy-support-for-ie8 : true;
+
+// http://beta.compass-style.org/reference/compass/support/res
+// http://beta.compass-style.org/help/documentation/tuning-vendor-prefixes/
+// http://atendesigngroup.com/blog/new-browser-support-features-compass-1x
+
+$graceful-usage-threshold : 0.1;
+$critical-usage-threshold : 0.1368;
+
+// to exclude ie7
+$debug-browser-support    : false;
+$browser-minimum-versions : ("ie": "8");
+
+// compass-borderbox variables
+$global-border-box        : true;
+
+// ---------- Sprites ----------
+
+$disable-magic-sprite-selectors: false;
+
+// ---------- Z Indexes ----------
+
+$z-layers: (
+    "default" : 1,
+    "below" : -1,
+    "bottomless-pit" : -9000,
+    "header" : (
+        "global" : 3000,
+        "navopen": 7000
+    ),
+    "footer" : (
+        "sticky" : 4000
+    ),
+    "slideout": 6000,
+    "modal" : 99999
+);
+
+// ---------- Media Queries ----------
+
+$media-queries: (
+    "xs": "only screen and (max-width: 480px)",
+    "sm" : "only screen and (max-width: 640px)",
+    "smr" : "only screen and (max-width: 640px) and (-webkit-min-device-pixel-ratio: 2)",
+    "md" : "only screen and (min-width: 641px) and (max-width: 1024px)",
+    "mdr" : "only screen and (min-width: 641px) and (max-width: 1024px) and (-webkit-min-device-pixel-ratio: 2)",
+    "isi-hide" : "(max-width: 1200px)",
+    "lg" : "only screen and (min-width: 1025px) and (max-width: 1279px)",
+    "lgr" : "only screen and (min-width: 1025px) and (max-width: 1279px) and (-webkit-min-device-pixel-ratio: 2)",
+    "xl": "only screen and (min-width: 1280px)",
+    "xlr": "only screen and (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2)",
+    "xxl": "only screen and (min-width: 1440px)",
+    "xxxl": "only screen and (min-width: 1860px)",
+    "op": "(orientation: portrait)",
+    "ol": "(orientation: landscape)",
+    "p": "(max-aspect-ratio: 13/9)",
+    "l": "(min-aspect-ratio: 13/9)",
+    "isi-lg": "only screen and (min-width: 1200px)"
+);
+
+$queries: (
+    sm: false,
+    smr: true,
+    md: false,
+    mdr: true,
+    lg: false,
+    lgr: true,
+    xl: false,
+    xlr: true
+);
+
+$font-weights: (
+    "open sans" : (
+        "light": 300,
+        "normal": 400,
+        "semibold": 600,
+        "bold": 700,
+        "extrabold": 800
+    )
+);
+
+
+// Tymlos colors:
+
+$text-orange: #fd8204;

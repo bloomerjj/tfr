@@ -1,0 +1,105 @@
+
+
+// This is all to be used within the accordionSection directive
+// check abalo-mixins.pug for the markup
+
+.accordion-button {
+    background-color: #fd8204;
+    height: 35px;
+    padding: 8px 10px;
+
+    p {
+        color: #fff;
+        font-size: 16px;
+        line-height: 20px;
+        margin: 0;
+    }
+
+    .state-icon {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        width: 21px;
+        height: 21px;
+    }
+
+
+    .icon {
+        position: absolute;
+        transition: opacity 250ms;
+    }
+    .icon-plus {
+        width: 21px;
+        height: 21px;
+
+        &:before {
+            content: '';
+            width: 1px;
+            height: 21px;
+            position: absolute;
+            left: 10px;
+            top: 0;
+            background-color: #fff;
+        }
+        &:after {
+            content: '';
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            left: 0;
+            top: 10px;
+            background-color: #fff;
+        }
+    }
+
+
+    .icon-minus {
+        opacity: 0;
+        margin-top: 10px;
+        width: 21px;
+        height: 1px;
+        background-color: #fff;
+    }
+
+
+    &.open {
+
+        .icon-minus {
+            opacity: 1;
+        }
+
+        .icon-plus {
+            opacity: 0;
+        }
+    }
+}
+
+
+.accordion-section {
+
+    @include mq('md', 'lg', 'xl') {
+        .section--accordion-button {
+            display: none;
+        }
+    }
+
+    @include mq('sm') {
+
+        .wrap--accordion {
+            padding-top: 0;
+            padding-bottom: 37px !important;
+        }
+
+        section {
+            display: none;
+
+            &.section--accordion-button {
+                display: block;
+            }
+        }
+
+        &.open section {
+            display: block;
+        }
+    }
+}

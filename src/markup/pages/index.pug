@@ -1,0 +1,100 @@
+---
+title: "Help Reduce the Risk of Osteoporotic Fractures with TYMLOS|TYMLOS HCP | TYMLOS HCP"
+description: "TYMLOS helps reduce the risk of fractures for postmenopausal patients at high risk. Be on the forefront of postmenopausal osteoporosis management and visit TYMLOShcp.com to learn more."
+keywords: ""
+section: "home"
+---
+//- NOTE: in the Yaml, section must match name of section in site.yaml
+
+extends /layouts/base.pug
+
+include /mixins/abalo-mixins.pug
+
+//- append analytics
+    :raw
+
+block content
+    section.section--page
+        .wrap--content
+            .row
+                .container.valign-desktop
+                    div(class="col-xs-12 col-md-6 first-responder-container")
+                        h1
+                            img(class="headline-img" srcset="img/first-responder-new.png" alt="For Your Postmenopausal Patients at High Risk for Osteoporotic Fracture, be an osteoporosis first responder")
+                    div(class="col-xs-12 col-md-6 bubbles-container")
+                        .connecting-line.hide--sm.hide--xs
+                        .bubble1-container.bubble-container.row
+                            .left-side-container
+                                .inner-bubble-container
+                                    .number-container.number1.hover-change.color-changing.svgColorManagement(number="1")
+                                        include ../../images/number1.svg
+                                    .divider-line
+                                    .white-circle.svgColorManagement(number="1")
+                                        .circle-container.color-changing
+                                            include ../../images/circle.svg
+                                        div.icon-container.icon1.hover-change.color-changing
+                                            include ../../images/ask-icon.svg
+                            .right-side-container
+                                div.text-container.svgColorManagement(number="1")
+                                    h3.title.capitalize ASK #[span(class="color-changing text-color-changing-1") ABOUT FRACTURES]
+                                    p.content For postmenopausal women, osteoporotic fractures are a sentinel event that can lead to subsequent fractures, especially in the first 12 months#[sup 2,3]
+                                    p(class="text-color-changing-1 color-changing capitalize") Discover the data &gt;
+                            //.line-between-numbers
+                        .bubble2-container.bubble-container.row
+                            .left-side-container
+                                .inner-bubble-container
+                                    div.number-container.number2.hover-change.color-changing.svgColorManagement(number="2")
+                                        include ../../images/number2.svg
+                                    .divider-line
+                                    .white-circle.svgColorManagement(number="2")
+                                        .circle-container.color-changing
+                                            include ../../images/circle.svg
+                                        div.icon-container.icon2.hover-change.color-changing
+                                            include ../../images/diagnose-icon-02.svg
+                            .right-side-container
+                                div.text-container.svgColorManagement(number="2")
+                                    h3.title.capitalize DIAGNOSE #[span(class="color-changing text-color-changing-2") POSTMENOPAUSAL OSTEOPOROSIS]
+                                    p.content Osteoporosis can be diagnosed in clinical practice based on presence and/or history of fragility fractures#[sup 4,5]*
+                                    p(class="text-color-changing-2 color-changing capitalize") Learn more &gt;
+                            //.line-between-numbers
+                        .bubble3-container.bubble-container.row
+                            .left-side-container
+                                .inner-bubble-container
+                                    div.number-container.number3.hover-change.color-changing.svgColorManagement(number="3")
+                                            include ../../images/number3.svg
+                                    .divider-line
+                                    .white-circle.svgColorManagement(number="3")
+                                        .circle-container.color-changing
+                                            include ../../images/circle.svg
+                                        div.icon-container.icon3.hover-change.color-changing
+                                            include ../../images/treat-icon.svg
+                            .right-side-container
+                                div.text-container.svgColorManagement(number="3")
+                                    h3.title.capitalize.capitalize TREAT  #[span(class="color-changing text-color-changing-3") WITH TYMLOS]
+                                    p.content TYMLOS provided reductions in new vertebral and nonvertebral fractures and increases in BMD that were extended with alendronate#[sup 1,6]
+                                    p(class="text-color-changing-3 color-changing capitalize") See the results &gt;
+                div(class="purple-container")
+                        p(class="first-line") Many postmenopausal women at increased risk of fracture were not evaluated and treated.#[sup 7&dagger;]
+                        p(class="second-line capitalize") You are at the forefront of postmenopausal osteoporosis treatment
+                img(class="purple-triangle hide--sm" src="img/triangle.png")
+        .wrap--content.buttons.wrap--full.footnotes-container
+            p.references.footnotes.
+              #[sup(class="hanging-symbol") *] Fragility fractures of the spine or hip, regardless of BMD; fragility fractures of the proximal humerus, pelvis, or possibly distal forearm with osteopenia or low bone mass (T-score between -1 and -2.5).#[sup 4]
+            p.references.footnotes.
+              #[sup(class="hanging-symbol") &dagger;] An observational study of trends in utilization of osteoporosis-related health services within 6 and 12 months following hip fracture among a treatment-naive cohort of privately insured women aged 50 years and older (N=8349), with no prior osteoporosis diagnoses.#[sup 7]
+        .wrap--content.buttons.wrap--full
+            p.references
+                strong References: 1. 
+                | TYMLOS#[sup &trade;] [prescribing information]. Waltham, MA: Radius Health, Inc; 2017.
+                strong  2. 
+                | National Coalition for Osteoporosis and Related Bone Diseases. National Action Plan for Bone Health: Recommendations From the Summit for a National Action Plan for Bone Health. http://www.oif.org/site/DocServer/BoneHealthReport.pdf. Accessed July 9, 2018.
+                strong  3. 
+                | Lindsay R, Silverman SL, Cooper C, et al. Risk of new vertebral fracture in the year following a fracture. #[span(class="italic") JAMA]. #[span(class="nobr") 2001;285(3):320-323].
+                strong  4. 
+                | Camacho PM, Petak SM, Binkley N, et al. American Association of Clinical Endocrinologists and American College of Endocrinology Clinical Practice Guidelines for the diagnosis and treatment of postmenopausal osteoporosis—2016. #[span(class="italic") Endocr Pract]. #[span(class="nobr") 2016;22(suppl 4):1-42].
+                strong  5. 
+                | van den Bergh JP, van Geel TA, Geusens PP. Osteoporosis, frailty, and fracture: implications for case finding and therapy. #[span(class="italic") Nat Rev Rheumatol]. #[span(class="nobr") 2012;8(3):163-172].
+                strong  6. 
+                | Bone HG, Cosman F, Miller PD, et al. ACTIVExtend: 24 months of alendronate after 18 months of abaloparatide or placebo for postmenopausal osteoporosis. #[span(class="italic") J Clin Endocrinol Metab]. #[span(class="nobr") doi:10.1210/jc.2018-00163].
+                strong  7. 
+                | Gillespie KW, Morin PE. Osteoporosis-related health services utilization following first hip fracture among a cohort of privately-insured women in the United States, 2008-2014: an observational study. #[span(class="italic") J Bone Miner Res]. #[span(class="nobr") 2017;32(5):1052-1061]. [Erratum in: #[span(class="italic") J Bone Miner Res]. #[span(class="nobr") 2018;33(3):549]].

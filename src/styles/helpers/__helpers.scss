@@ -1,0 +1,16 @@
+// Helpers
+
+// The helpers/ folder (sometimes called utils/) gathers all Sass tools and helpers we’ll use
+// across the project. Got a function? A mixin? Put it in there. This folder also contains
+// a _variables.scss file (sometimes _config.scss) which holds all global variables for the
+// project (for typography, color schemes, and so on).
+
+// @import "SassyStrings";
+@import "_variables.scss";        // variables
+// @import "compass";          // compass
+// @import "rgbapng";          // compass-rgbapng
+// @import "borderbox";        // compass-borderbox
+// @import "bourbon";  // bourbon
+@import "_functions.scss";        // functions
+@import "_mixins.scss";           // mixins
+@import "_placeholders.scss";     // placeholders

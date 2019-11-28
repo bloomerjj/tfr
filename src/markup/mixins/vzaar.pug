@@ -1,0 +1,16 @@
+
+mixin vzaar-iframe(vzaarId, queryString)
+    - queryString = (typeof queryString !== 'undefined') ? queryString : '';
+
+    //- if (attributes.hasOwnProperty('ng-if'))
+    //-     iframe.vzaar-video-player(allowfullscreen="", allowtransparency="true", frameborder="0", mozallowfullscreen="", name="vzvd-"+vzaarId, ng-src="//view.vzaar.com/"+vzaarId+"/player"+queryString, type="text/html", webkitallowfullscreen="")&attributes(attributes)
+    //- else
+    //-     iframe.vzaar-video-player(allowfullscreen="", allowtransparency="true", frameborder="0", mozallowfullscreen="", name="vzvd-"+vzaarId, src="//view.vzaar.com/"+vzaarId+"/player"+queryString, type="text/html", webkitallowfullscreen="")&attributes(attributes)
+
+    iframe.vzaar-video-player(allowfullscreen="", allowtransparency="true", frameborder="0", mozallowfullscreen="", name="vzvd-"+vzaarId, src="//view.vzaar.com/"+vzaarId+"/player"+queryString, type="text/html", webkitallowfullscreen="")&attributes(attributes)
+
+mixin vzaar-img(vzaarId)
+    img(src="//view.vzaar.com/"+vzaarId+"/image")&attributes(attributes)
+
+mixin pronounciation-player
+        iframe.vzaar-video-player(allowfullscreen="", allowtransparency="true", frameborder="0", mozallowfullscreen="", src="", type="text/html", webkitallowfullscreen="").visuallyhidden#pronounciation-player

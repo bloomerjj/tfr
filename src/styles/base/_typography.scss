@@ -1,0 +1,381 @@
+//    /$$                                    /$$$$$$
+//   | $$                                   /$$__  $$
+//  /$$$$$$   /$$   /$$  /$$$$$$   /$$$$$$ | $$  \__//$$$$$$   /$$$$$$$  /$$$$$$
+// |_  $$_/  | $$  | $$ /$$__  $$ /$$__  $$| $$$$   |____  $$ /$$_____/ /$$__  $$
+//   | $$    | $$  | $$| $$  \ $$| $$$$$$$$| $$_/    /$$$$$$$| $$      | $$$$$$$$
+//   | $$ /$$| $$  | $$| $$  | $$| $$_____/| $$     /$$__  $$| $$      | $$_____/
+//   |  $$$$/|  $$$$$$$| $$$$$$$/|  $$$$$$$| $$    |  $$$$$$$|  $$$$$$$|  $$$$$$$
+//    \___/   \____  $$| $$____/  \_______/|__/     \_______/ \_______/ \_______/
+//            /$$  | $$| $$
+//           |  $$$$$$/| $$
+//            \______/ |__/
+
+
+
+@mixin font-face($file-path, $font-name) {
+
+    @font-face {
+        font-family: $font-name;
+        src: url($file-path + '.eot');
+        src: url($file-path + '.eot?#iefix') format('embedded-opentype'),
+             url($file-path + '.woff') format('woff'),
+             url($file-path + '.ttf')  format('truetype'),
+             url($file-path + '.svg#svgFontName') format('svg');
+    }
+}
+
+$font-path: '../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-';
+$general-font-path: '../fonts/';
+
+$font-list: ($font-path+"BdCn", "Helvetica Neue Condensed Bold"),
+            ($font-path+"Bd", "Helvetica Neue Bold"),
+            ($font-path+"BdCnO", "Helvetica Neue Condensed Bold Italic"),
+
+            ($font-path+"BlkCn", "Helvetica Neue Condensed Black"),
+            ($font-path+"BlkCnO", "Helvetica Neue Condensed Black Italic"),
+
+            ($font-path+"Cn", "Helvetica Neue Condensed"),
+            ($font-path+"CnO", "Helvetica Neue Condensed Italic"),
+
+            ($font-path+"HvCn", "Helvetica Neue Condensed Heavy"),
+            ($font-path+"HvCnO", "Helvetica Neue Condensed Heavy Italic"),
+
+            ($font-path+"LtCn", "Helvetica Neue Condensed Light"),
+            ($font-path+"LtCnO", "Helvetica Neue Condensed Light Italic"),
+
+            ($font-path+"MdCn", "Helvetica Neue Condensed Medium"),
+            ($font-path+"MdCnO", "Helvetica Neue Condensed Medium Italic"),
+
+            ($font-path+"ThCn", "Helvetica Neue Condensed Thin"),
+            ($font-path+"ThCnO", "Helvetica Neue Condensed Thin Italic"),
+
+            ($font-path+"UltCn", "Helvetica Neue Condensed Ultra Thin"),
+            ($font-path+"UltCnO", "Helvetica Neue Condensed Ultra Thin Italic"),
+
+            ($font-path+"XBlkCn", "Helvetica Neue Condensed Extra Black"),
+            ($font-path+"XBlkCnO", "Helvetica Neue Condensed Extra Black Italic"),
+
+            ($font-path+"XBlkCn", "Helvetica Neue Condensed Extra Black"),
+            ($font-path+"Bd", "Helvetica Neue LT Std Bold"),
+
+            ($general-font-path+"KorolevCondensed-Medium", "korolev-condensed"),
+            ($general-font-path+"Korolev-Medium", "korolev"),
+            ($general-font-path+"Korolev-MediumItalic", "korolev-MediumItalic"),
+            ($general-font-path+"Korolev-Light", "korolev-Light"),
+            ($general-font-path+"Korolev-LightItalic", "korolev-LightItalic"),
+            ($general-font-path+"Korolev-Bold", "korolev-Bold"),
+
+            ($general-font-path+"FilsonSoft-Bold", "FilsonSoft-bold"),
+            ($general-font-path+"FilsonSoft-BoldItalic", "FilsonSoft-bolditalic"),
+            ($general-font-path+"FilsonSoftBlack", "FilsonSoft-black");
+
+
+
+
+// iterate through the font lists and give parameters to font-face mixin
+@each $font in $font-list {
+    $i: 1;
+    $path: null;
+    $name: null;
+
+    @each $item in $font {
+
+        // first item in sublist is always the file path
+        @if $i == 1 {
+            $path: $item;
+        }
+
+        // second item in sublist is always font name
+        @if $i == 2 {
+            $name: $item;
+        }
+
+        $i: $i+1;
+    }
+
+    @include font-face($path, $name);
+}
+
+@mixin helNeue($style) {
+
+
+    // DEFAULT TO NORMAL
+    @if $style == '' {
+        font-family: 'Helvetica Neue Condensed', sans-serif;
+
+    } @else {
+        font-family: 'Helvetica Neue Condensed ' + $style, sans-serif;
+    }
+}
+
+
+/*
+
+    KOROLEV
+        This is loaded from typekit.  Here are the Font stacks:
+
+        font-family: "korolev",sans-serif;
+        font-family: "korolev-compressed",sans-serif;
+*/
+
+/* 
+
+    HELVETICA NEUE
+        We need to figure out how to load this font face.
+        Currently its being loaded from the CDM Princeton fonts.com account but this will not be ok for prod
+
+        font-family:'Helvetica Neue Condensed LT W01_47 Light';
+        font-family:'Helvetica Neue Condensed LT W01_57 Cond';
+
+*/
+
+
+//              /$$               /$$ /$$
+//             | $$              | $$|__/
+//   /$$$$$$$ /$$$$$$   /$$   /$$| $$ /$$ /$$$$$$$   /$$$$$$
+//  /$$_____/|_  $$_/  | $$  | $$| $$| $$| $$__  $$ /$$__  $$
+// |  $$$$$$   | $$    | $$  | $$| $$| $$| $$  \ $$| $$  \ $$
+//  \____  $$  | $$ /$$| $$  | $$| $$| $$| $$  | $$| $$  | $$
+//  /$$$$$$$/  |  $$$$/|  $$$$$$$| $$| $$| $$  | $$|  $$$$$$$
+// |_______/    \___/   \____  $$|__/|__/|__/  |__/ \____  $$
+//                      /$$  | $$                   /$$  \ $$
+//                     |  $$$$$$/                  |  $$$$$$/
+//                      \______/                    \______/
+
+body {
+    // @include webfont();
+    font-family: "korolev", sans-serif;
+}
+
+strong, b, .bold {
+    font-weight: 700;
+}
+
+em, i, .italic {
+    // @include webfont("italic");
+}
+
+
+h1, .heading--1 {
+    font-size: 25px;
+    line-height: 26px;
+    font-family: "korolev", sans-serif;
+    font-weight: 500;
+    color: #b2b2b2;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+
+    .eyebrow {
+        display: block;
+        color: #fd8204;
+        font-family: "korolev-condensed",sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        margin-bottom: 10px;
+
+        @include mq('sm') {
+            font-size: 18px;
+            line-height: 18px; 
+            margin-bottom: 12px;
+        }
+    }
+
+    @include mq('sm') {
+        font-size: 21px;
+        line-height: 21px;
+    }
+}
+h2, .heading--2 {
+    font-size: 20px;
+    line-height: 20px;
+    color: #fd8204;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+    font-family: 'korolev-condensed', sans-serif;
+
+    &.white-color {
+        color: #fff;
+    }
+
+    &.bump-it {
+        margin-bottom: 48px;
+    }
+
+    @include mq('sm') {
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
+h3, .heading--3 {
+    font-family: "korolev", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.02em;
+    color: #d8d8d8;
+
+    @include mq('sm') {
+        font-family: "korolev-condensed", sans-serif;
+        letter-spacing: 0.01em;
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 20px;
+    }
+}
+h4, .heading--4 {
+    font-size: 16px;
+    line-height: 17px;
+    // letter-spacing: 0.05em;
+    font-family: "korolev-condensed",sans-serif;
+    color: #d8d8d8;
+}
+h5, .heading--5 {
+    font-size: 20px;
+}
+h6, .heading--6 {
+    font-size: 18px;
+}
+p {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "korolev-condensed",sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+
+    margin-bottom: 10px;
+    color: #d8d8d8;
+
+    &.orange {
+        color: #fd8204;
+    }
+
+    &.h2-size{
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    em {
+        font-style: italic;
+    }
+    strong {
+        font-weight: 700;
+    }
+
+    &.disclaimer {
+        padding-left: 1px;
+
+        @include helNeue("Light");
+        font-size: 13px;
+        line-height: 14px;
+        color: #ffffff;
+
+        &:before {
+            content: '';
+            position: absolute;
+        }
+
+        @mixin daggerPositioning {
+            font-size: 0.6em;
+            line-height: 1em;
+            top: -1px;
+            left: -3px;
+        }
+
+        &.dagger {
+            padding-left: 2px;
+        }
+
+        &.dagger:before {
+            content: '\2020';
+
+            @include daggerPositioning;
+        }
+        &.double-dagger:before {
+            content: '\2021';
+
+            @include daggerPositioning;
+        }
+        &.asterisk:before {
+            content: '*';
+            top: 0;
+            left: -4px;
+        }
+        &.s:before {
+            content: '§';
+            @include daggerPositioning;
+        }
+        &.l:before {
+            content: 'll';
+            @include daggerPositioning;
+        }
+    }
+
+    &.references {
+        @include helNeue("Light");
+        font-size: 13px;
+        line-height: 15px;
+        margin-bottom: 25px;
+        letter-spacing: 0.025em;
+        word-break: break-word;
+
+        strong {
+            @include helNeue('Medium');
+        }
+    }
+
+    // sometimes a paragraph is just randomly in helvetica neue.
+    // whatever.
+    &.helvetica-neue {
+        @include helNeue("Light");
+    }
+}
+li {
+    font-size: 16px;
+    line-height: 20px;
+    font-family: "korolev-condensed", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+
+    margin-bottom: 5px;
+    color: #fff;
+
+    &.helvetica-neue {
+        @include helNeue("Light");
+    }
+}
+
+a {
+    color: #d8d8d8;
+}
+
+.font--alt {
+    font-family: "korolev", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.small-caps {
+    font-size: 0.725em;
+}
+
+
+
+.orange {
+    color: $text-orange;
+}
+
+
+nav li {
+    padding-bottom: 0;
+}
+
+.url {
+    word-break: break-all;
+}
+
+.capitalize {
+    text-transform: uppercase;
+}

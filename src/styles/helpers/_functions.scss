@@ -1,0 +1,38 @@
+// http://oddbird.net/2013/10/19/map-merge/
+// a map-set function (not included with Sass)
+@function map-set($map, $key, $value) {
+  $new: ($key: $value);
+  @return map-merge($map, $new);
+}
+
+
+// ---------- Z-Index ----------
+
+// http://www.sitepoint.com/better-solution-managing-z-index-sass/
+// https://twitter.com/w3cplus/status/479910313198768128
+
+// Check if map has nested keys
+@function map-has-nested-keys($map, $keys...) {
+    @each $key in $keys {
+        @if not map-has-key($map, $key) {
+            @return false;
+        }
+        $map: map-get($map, $key);
+    }
+    @return true;
+}
+
+// Fetch a value from nested maps
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+@function z($layers...) {
+    @if not map-has-nested-keys($z-layers, $layers...) {
+        @warn "No layer found for `#{inspect($layers)}` in $z-layers map. Property omitted.";
+    }
+    @return map-deep-get($z-layers, $layers...);
+}

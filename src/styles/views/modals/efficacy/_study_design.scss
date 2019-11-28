@@ -1,0 +1,65 @@
+.modal.modal--study-design {
+
+
+    .image--study-design {
+        max-width: 1078px;
+        margin-bottom: 23px;
+
+    }
+    p.references {
+        // max-width: 877px;
+        margin-bottom: 0;
+        padding-top: 18px;
+
+        .no-wrap {
+            white-space: nowrap;
+        }
+    }
+
+
+    @include mq('lg') {
+
+        .purple-callout {
+            padding: 32px 15px 30px;
+
+            p {
+                padding: 0;
+            }
+        }
+    }
+
+    @include mq('lg','xl') {
+        .purple-callout {
+            padding-left: 0;
+        }
+    }
+
+    @include mq('sm') {
+        .image--study-design {
+            width: percentage(280/300);
+        }
+
+        .purple-callout {
+            margin: 26px 0 52px;
+            padding: 29px;
+
+            p {
+                padding: 0;
+                font-size: 18px;
+                line-height: 20px;
+            }
+        }
+
+        ul li {
+            @include helNeue('Medium');
+        }
+        ul.dash li {
+            @include helNeue('Light');
+        }
+
+
+        p.references {
+            margin-bottom: 0;
+        }
+    }
+}

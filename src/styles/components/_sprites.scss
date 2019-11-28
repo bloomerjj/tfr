@@ -1,0 +1,14 @@
+.is--hc {
+    position: absolute;
+    left: 50%;
+    // margin-left will be added in the sprite mixin
+}
+.is--vc {
+    position: absolute;
+    top: 50%;
+    // margin-top will be added in the sprite mixin
+}
+
+// @each $query, $retina in $queries {
+//     @include get-all-sprites-for-query($query);
+// }
